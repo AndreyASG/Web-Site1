@@ -72,69 +72,7 @@
 .v2 .hero__waves { display: none; }
 .v2 .hero__inner { z-index: 2; width: 100%; }
 
-/* ---------- Сценарий «заявка пришла» (js/hero-v2.js) ---------- */
-.v2 .hero__visual { overflow: visible; }
-
-/* Карточки управляются скриптом: скрыты, пока сценарий их не покажет */
-.v2 .float-card {
-  animation: none;
-  opacity: 0;
-  transform: translateY(14px) scale(.94);
-  transition: opacity .35s ease, transform .45s cubic-bezier(.34, 1.56, .64, 1);
-}
-.v2 .float-card.is-in { opacity: 1; transform: none; }
-.v2 .float-card.is-out { opacity: 0; transform: translateY(-12px) scale(.97); transition-duration: .45s; }
-
-/* «Хлоп»: заявка влетает, чуть перелетает и садится на место */
-.v2 .float-card--request.is-in { animation: req-pop .75s cubic-bezier(.2, .9, .3, 1.25) both, req-flash 1.4s ease-out both; }
-@keyframes req-pop {
-  0%   { opacity: 0; transform: translate(-26px, 34px) scale(.55); }
-  55%  { opacity: 1; transform: translate(0, -6px) scale(1.07); }
-  78%  { transform: translate(0, 1px) scale(.985); }
-  100% { opacity: 1; transform: none; }
-}
-@keyframes req-flash {
-  0%   { border-color: var(--asg-cyan); box-shadow: 0 0 0 0 rgba(0, 229, 250, .55), 0 18px 40px -18px rgba(0, 0, 0, .8); }
-  60%  { border-color: rgba(0, 229, 250, .6); box-shadow: 0 0 0 14px rgba(0, 229, 250, 0), 0 18px 40px -18px rgba(0, 0, 0, .8); }
-  100% { border-color: var(--asg-line-strong); box-shadow: 0 0 0 0 rgba(0, 229, 250, 0), 0 18px 40px -18px rgba(0, 0, 0, .8); }
-}
-
-/* Пульс точки у новой заявки */
-.v2 .float-card__dot { position: relative; }
-.v2 .float-card--request.is-in .float-card__dot::after {
-  content: ''; position: absolute; inset: -5px; border-radius: 50%;
-  border: 2px solid var(--asg-cyan);
-  animation: dot-ping 1.2s ease-out .3s 2 both;
-}
-@keyframes dot-ping {
-  from { transform: scale(.6); opacity: .9; }
-  to { transform: scale(2.4); opacity: 0; }
-}
-
-/* Кнопка на макете сайта «нажимается» */
-.v2 .mock-btn { transition: transform .15s ease, box-shadow .3s ease; }
-.v2 .mock-btn.is-pressed { transform: scale(.88); box-shadow: 0 0 0 6px rgba(0, 229, 250, .25), 0 0 24px rgba(0, 229, 250, .8); }
-
-/* Светящаяся «заявка», которая вылетает из кнопки к карточке */
-.v2 .fly-dot {
-  position: absolute; z-index: 3; width: 12px; height: 12px; margin: -6px 0 0 -6px;
-  border-radius: 50%; pointer-events: none;
-  background: #EAFCFF;
-  box-shadow: 0 0 10px 3px rgba(0, 229, 250, .9), 0 0 28px 8px rgba(0, 212, 255, .45);
-  offset-rotate: 0deg;
-}
-
-/* ИИ-помощник: бегущие точки и смена статуса */
-.v2 .float-card--ai p { display: flex; align-items: center; gap: 6px; }
-.v2 .typing { display: inline-flex; gap: 3px; }
-.v2 .typing i { width: 4px; height: 4px; border-radius: 50%; background: var(--asg-cyan); animation: typing 1s ease-in-out infinite; }
-.v2 .typing i:nth-child(2) { animation-delay: .15s; }
-.v2 .typing i:nth-child(3) { animation-delay: .3s; }
-@keyframes typing { 0%, 60%, 100% { opacity: .25; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
-.v2 .float-card--ai.is-done { color: #00F7FF; border-color: rgba(0, 229, 250, .45); }
-
-/* Статичный вид: «уменьшить движение» или нет JavaScript-сценария */
-.v2 .hero__visual.is-static .float-card { opacity: 1; transform: none; animation: none; transition: none; }
+/* Сценарий «заявка пришла» на ноутбуке - в css/hero-laptop.css */
 
 /* Затемнение под текстом: дождь виден справа и по краям, текст остаётся читаемым */
 .v2 .hero__shade {

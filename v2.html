@@ -15,6 +15,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/data-rain.css">
+<link rel="stylesheet" href="css/hero-laptop.css">
 </head>
 <body class="v2">
 
@@ -84,36 +85,61 @@
       </div>
 
       <!-- Визуальная композиция: сайт в процессе сборки -->
-      <div class="hero__visual" aria-hidden="true">
-        <div class="browser">
-          <div class="browser__bar">
-            <i></i><i></i><i></i>
-            <span class="browser__url">ваш-сайт.рф</span>
-          </div>
-          <div class="browser__body">
-            <div class="mock-nav"><b></b><span></span><span></span><span></span><em></em></div>
-            <div class="mock-hero">
-              <div class="mock-hero__text">
-                <span class="mock-line mock-line--xl"></span>
-                <span class="mock-line mock-line--lg"></span>
-                <span class="mock-line mock-line--sm"></span>
-                <span class="mock-btn"></span>
+      <div class="hero__visual hero__visual--laptop" aria-hidden="true">
+        <div class="laptop">
+          <div class="laptop__lid">
+            <div class="laptop__screen">
+              <div class="lsite">
+                <div class="lsite__nav">
+                  <span class="lsite__logo">Север<b>.</b></span>
+                  <span class="lsite__links"><i>Услуги</i><i>Цены</i><i>Отзывы</i></span>
+                </div>
+                <div class="lsite__hero">
+                  <div class="lsite__text">
+                    <p class="lsite__title">Ремонт квартир под&nbsp;ключ</p>
+                    <p class="lsite__sub">Смета за один день, гарантия три года</p>
+                    <span class="lsite__btn">Оставить заявку</span>
+                  </div>
+                  <div class="lsite__img"></div>
+                </div>
+                <div class="lsite__stats">
+                  <span><b>4,9</b> на Картах</span>
+                  <span><b>320</b> объектов</span>
+                  <span><b>с 2015</b> года</span>
+                </div>
               </div>
-              <div class="mock-hero__img"></div>
+
+              <div class="ltoast">
+                <span class="ltoast__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+                <span class="ltoast__body">
+                  <span class="ltoast__head"><b>Новая заявка</b><em>сейчас</em></span>
+                  <span class="ltoast__text">Ирина, ремонт ванной</span>
+                  <span class="ltoast__meta">+7 912 •••-••-48</span>
+                </span>
+              </div>
+
+              <span class="lcursor"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.2 1.6L10 19z" fill="#fff" stroke="#000513" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+              <span class="laptop__glare"></span>
             </div>
-            <div class="mock-cards"><span></span><span></span><span></span></div>
+            <span class="laptop__cam"></span>
+          </div>
+          <div class="laptop__hinge"></div>
+          <div class="laptop__deck-wrap">
+            <div class="laptop__deck">
+              <div class="laptop__kbd"></div>
+              <div class="laptop__pad"></div>
+              <div class="laptop__front"></div>
+            </div>
           </div>
         </div>
-        <div class="float-card float-card--request">
-          <span class="float-card__dot"></span>
-          <div>
-            <p class="float-card__title">Новая заявка с сайта</p>
-            <p class="float-card__text">Имя, телефон, задача</p>
+
+        <div class="aireply">
+          <div class="aireply__head">
+            <span class="aireply__avatar"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="aireply__name">ИИ-помощник</span>
+            <span class="aireply__status">пишет ответ</span>
           </div>
-        </div>
-        <div class="float-card float-card--ai">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h4l2-6 4 12 2-6h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p>ИИ-помощник готовит ответ</p>
+          <p class="aireply__text">Ирина, здравствуйте! Мастер может приехать на замер завтра в 11:00. Удобно?</p>
         </div>
       </div>
     </div>

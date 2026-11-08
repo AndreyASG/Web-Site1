@@ -1,0 +1,245 @@
+/* Сайт V2: ноутбук на первом экране и сценарий «заявка пришла» (js/hero-v2.js).
+   Размеры внутри экрана заданы в cqw (процентах ширины экрана), поэтому текст на «сайте»
+   остаётся чётким и пропорциональным на любом размере. */
+
+.v2 .hero__visual--laptop { padding: 8px 0 72px; overflow: visible; }
+
+/* ---------- Ноутбук ----------
+   Крышка с тонкой рамкой стоит прямо, нижняя часть (клавиатура и тачпад) уходит к зрителю
+   в настоящей 3D-перспективе: камера чуть выше ноутбука, как на предметной съёмке. */
+.laptop { position: relative; container-type: inline-size; padding-bottom: 2cqw; }
+
+/* Отражение и свет на «столе» */
+.laptop::after {
+  content: ''; position: absolute; left: 4%; right: 4%; bottom: -3cqw; height: 12cqw;
+  background:
+    radial-gradient(50% 45% at 50% 40%, rgba(0, 212, 255, .32), rgba(10, 99, 255, .12) 55%, transparent 75%);
+  filter: blur(16px); z-index: -1; pointer-events: none;
+}
+
+.laptop__lid {
+  position: relative; width: 78%; margin: 0 auto;
+  padding: 1.1cqw 1cqw 1.6cqw;
+  border-radius: 1.9cqw 1.9cqw .5cqw .5cqw;
+  background: #04060B;
+  box-shadow:
+    0 0 0 .22cqw #2E374A,
+    0 0 0 .3cqw rgba(255, 255, 255, .08),
+    inset 0 0 0 1px rgba(255, 255, 255, .05),
+    0 6cqw 10cqw -6cqw rgba(10, 99, 255, .6);
+}
+.laptop__cam {
+  position: absolute; top: .38cqw; left: 50%; width: .42cqw; height: .42cqw; margin-left: -.21cqw;
+  border-radius: 50%; background: #121A2A; box-shadow: inset 0 0 0 1px rgba(0, 229, 250, .2);
+}
+.laptop__screen {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+  border-radius: .5cqw;
+  container-type: inline-size;
+  background:
+    radial-gradient(70% 60% at 85% 0%, rgba(10, 99, 255, .3), transparent 60%),
+    linear-gradient(180deg, #04102A 0%, #020818 100%);
+}
+.laptop__glare {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(120deg, rgba(255, 255, 255, .09) 0%, rgba(255, 255, 255, .025) 36%, transparent 36.2%);
+}
+
+/* Петля */
+.laptop__hinge {
+  position: relative; z-index: 2; width: 74%; height: .7cqw; margin: 0 auto;
+  border-radius: 0 0 .4cqw .4cqw;
+  background: linear-gradient(180deg, #0A0E17 0%, #1B2232 100%);
+}
+
+/* Нижняя часть в перспективе */
+.laptop__deck-wrap {
+  position: relative; height: 22cqw; margin-top: -.2cqw;
+  perspective: 300cqw; perspective-origin: 50% -20cqw;
+}
+.laptop__deck {
+  position: relative; width: 78%; height: 46cqw; margin: 0 auto;
+  transform-origin: 50% 0; transform: rotateX(66deg);
+  transform-style: preserve-3d;
+  border-radius: .4cqw .4cqw 1.6cqw 1.6cqw;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, .06) 0%, transparent 18%),
+    linear-gradient(180deg, #2C3547 0%, #222A3B 55%, #1A2030 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07);
+}
+/* Клавиатура: тёмные клавиши над голубой подсветкой */
+.laptop__kbd {
+  position: absolute; top: 6%; left: 7%; right: 7%; height: 47%;
+  border-radius: .8cqw;
+  background: radial-gradient(80% 90% at 50% 60%, rgba(0, 229, 250, .32), rgba(10, 99, 255, .16) 60%, rgba(4, 8, 16, .9) 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .6);
+}
+.laptop__kbd::before { /* клавиши: пересечение рядов и колонок */
+  content: ''; position: absolute; inset: .7cqw;
+  background: linear-gradient(180deg, #1A2131, #0E131D);
+  -webkit-mask:
+    repeating-linear-gradient(90deg, #000 0 6.6%, transparent 6.6% 7.1428%),
+    repeating-linear-gradient(180deg, #000 0 14.6%, transparent 14.6% 16.6667%);
+  -webkit-mask-composite: source-in;
+  mask:
+    repeating-linear-gradient(90deg, #000 0 6.6%, transparent 6.6% 7.1428%),
+    repeating-linear-gradient(180deg, #000 0 14.6%, transparent 14.6% 16.6667%);
+  mask-composite: intersect;
+}
+.laptop__kbd::after { /* пробел */
+  content: ''; position: absolute; left: 31%; width: 38%; bottom: .7cqw; height: calc((100% - 1.4cqw) * .146);
+  background: linear-gradient(180deg, #1A2131, #0E131D);
+}
+/* Тачпад - реагирует на «клик» в сценарии */
+.laptop__pad {
+  position: absolute; left: 50%; bottom: 7%; width: 40%; height: 34%;
+  transform: translateX(-50%); border-radius: 1.2cqw;
+  background: linear-gradient(180deg, #2C3549 0%, #1F2738 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .09);
+  transition: box-shadow .35s ease, background .35s ease;
+}
+.laptop__pad.is-click {
+  background: linear-gradient(180deg, #2F3F5A 0%, #213049 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 229, 250, .7), 0 0 3cqw rgba(0, 229, 250, .5);
+}
+/* Передний торец: стоит вертикально к зрителю */
+.laptop__front {
+  position: absolute; left: 0; right: 0; top: 100%; height: 3.4cqw;
+  transform-origin: 50% 0; transform: rotateX(-66deg);
+  border-radius: 0 0 1.6cqw 1.6cqw;
+  background: linear-gradient(180deg, #6A7895 0%, #34405A 22%, #1A2131 70%, #0E131D 100%);
+}
+.laptop__front::after { /* выемка под палец */
+  content: ''; position: absolute; top: 0; left: 50%; width: 16%; height: 40%; transform: translateX(-50%);
+  border-radius: 0 0 1cqw 1cqw; background: linear-gradient(180deg, #121826, #232C3E);
+}
+
+/* ---------- Сайт клиента на экране ---------- */
+.lsite { padding: 3.2cqw 4.4cqw; color: var(--asg-white); }
+.lsite__nav { display: flex; align-items: center; justify-content: space-between; }
+.lsite__logo { font-size: 2.7cqw; font-weight: 700; letter-spacing: -.02em; }
+.lsite__logo b { color: var(--asg-cyan); }
+.lsite__links { display: flex; gap: 3cqw; font-size: 1.65cqw; color: var(--asg-muted); }
+.lsite__links i { font-style: normal; }
+
+.lsite__hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 4cqw; align-items: center; margin-top: 4.2cqw; }
+.lsite__title { font-size: 4.8cqw; font-weight: 700; line-height: 1.06; letter-spacing: -.025em; }
+.lsite__sub { margin-top: 1.8cqw; font-size: 1.9cqw; color: var(--asg-muted); }
+.lsite__btn {
+  position: relative; display: inline-block; margin-top: 3.4cqw;
+  padding: 1.5cqw 2.8cqw; border-radius: 1.3cqw;
+  background: var(--asg-gradient); color: #000513; font-size: 1.8cqw; font-weight: 700;
+  transition: transform .15s ease, box-shadow .35s ease;
+}
+.lsite__btn.is-pressed { transform: scale(.93); box-shadow: 0 0 0 1cqw rgba(0, 229, 250, .22), 0 0 4cqw rgba(0, 229, 250, .7); }
+.lsite__img {
+  aspect-ratio: 1 / .92; border-radius: 2.4cqw;
+  background:
+    linear-gradient(180deg, transparent 62%, rgba(0, 5, 19, .55) 100%),
+    radial-gradient(60% 50% at 70% 28%, rgba(0, 247, 255, .55), transparent 70%),
+    linear-gradient(90deg, transparent 47%, rgba(255, 255, 255, .1) 47.5%, rgba(255, 255, 255, .1) 48.5%, transparent 49%),
+    linear-gradient(150deg, #0A63FF 0%, #072A6B 55%, #04112E 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08);
+}
+.lsite__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3cqw; margin-top: 4.2cqw; }
+.lsite__stats span { padding-top: 1.5cqw; border-top: 1px solid rgba(255, 255, 255, .1); font-size: 1.55cqw; color: var(--asg-muted); }
+.lsite__stats b { display: block; margin-bottom: .4cqw; font-size: 2.8cqw; font-weight: 700; color: var(--asg-white); letter-spacing: -.02em; }
+
+/* ---------- Курсор посетителя ---------- */
+.lcursor {
+  position: absolute; left: 0; top: 0; width: 4.2cqw; z-index: 3; pointer-events: none;
+  transform: translate(var(--cx, 90cqw), var(--cy, 70cqw));
+  transition: transform .95s cubic-bezier(.6, 0, .25, 1), opacity .3s ease;
+  filter: drop-shadow(0 .4cqw .6cqw rgba(0, 0, 0, .5));
+  opacity: 0;
+}
+.lcursor svg { display: block; width: 100%; transition: transform .12s ease; transform-origin: 20% 10%; }
+.lcursor.is-on { opacity: 1; }
+.lcursor.is-click svg { transform: scale(.82); }
+
+/* ---------- Уведомление о заявке (выезжает на экране) ---------- */
+.ltoast {
+  position: absolute; top: 3cqw; right: 3cqw; z-index: 2; width: 42cqw;
+  display: flex; gap: 1.8cqw; align-items: flex-start;
+  padding: 2cqw; border-radius: 2.4cqw;
+  background: rgba(14, 28, 60, .72);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, .14);
+  box-shadow: 0 2.4cqw 6cqw -1.5cqw rgba(0, 0, 0, .75), inset 0 1px 0 rgba(255, 255, 255, .12);
+  opacity: 0; transform: translateX(112%);
+}
+.ltoast__icon {
+  flex: none; display: grid; place-items: center; width: 5.4cqw; height: 5.4cqw; border-radius: 1.5cqw;
+  background: var(--asg-gradient); color: #000513;
+}
+.ltoast__icon svg { width: 58%; height: 58%; }
+.ltoast__body { display: grid; gap: .5cqw; min-width: 0; flex: 1; }
+.ltoast__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1cqw; }
+.ltoast__head b { font-size: 2cqw; font-weight: 700; color: var(--asg-white); }
+.ltoast__head em { font-style: normal; font-size: 1.5cqw; color: var(--asg-muted); }
+.ltoast__text { font-size: 1.85cqw; color: #DCE6F5; }
+.ltoast__meta { font-size: 1.6cqw; font-weight: 600; color: var(--asg-cyan); }
+
+.ltoast.is-in { animation: toast-in .8s cubic-bezier(.2, 1, .3, 1) both, toast-glow 1.6s ease-out both; }
+.ltoast.is-out { opacity: 0; transform: translateX(112%); transition: opacity .45s ease, transform .6s cubic-bezier(.6, 0, .8, .4); }
+@keyframes toast-in {
+  0%   { opacity: 0; transform: translateX(112%); }
+  60%  { opacity: 1; transform: translateX(-3%); }
+  80%  { transform: translateX(1%); }
+  100% { opacity: 1; transform: none; }
+}
+@keyframes toast-glow {
+  0%, 25% { border-color: rgba(0, 229, 250, .9); box-shadow: 0 0 0 0 rgba(0, 229, 250, .5), 0 2.4cqw 6cqw -1.5cqw rgba(0, 0, 0, .75); }
+  70%     { box-shadow: 0 0 0 2cqw rgba(0, 229, 250, 0), 0 2.4cqw 6cqw -1.5cqw rgba(0, 0, 0, .75); }
+  100%    { border-color: rgba(255, 255, 255, .14); }
+}
+
+/* ---------- Ответ ИИ-помощника ---------- */
+.aireply {
+  position: absolute; right: -2%; bottom: -10px; z-index: 4; width: min(320px, 64%);
+  padding: 14px 16px 16px; border-radius: 20px;
+  background: rgba(8, 20, 48, .8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3); backdrop-filter: blur(16px) saturate(1.3);
+  border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .85), inset 0 1px 0 rgba(255, 255, 255, .1);
+  opacity: 0; transform: translateY(18px) scale(.96);
+  transition: opacity .4s ease, transform .55s cubic-bezier(.34, 1.4, .64, 1), border-color .4s ease;
+}
+.aireply.is-in { opacity: 1; transform: none; }
+.aireply.is-out { opacity: 0; transform: translateY(-10px) scale(.98); transition-duration: .45s; }
+.aireply.is-done { border-color: rgba(0, 229, 250, .4); }
+
+.aireply__head { display: flex; align-items: center; gap: 9px; }
+.aireply__avatar { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--asg-gradient); color: #000513; flex: none; }
+.aireply__avatar svg { width: 15px; height: 15px; }
+.aireply__name { font-size: 13px; font-weight: 700; color: var(--asg-white); }
+.aireply__status { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--asg-muted); white-space: nowrap; }
+.aireply__status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--asg-cyan); animation: ai-blink 1s ease-in-out infinite; }
+.aireply.is-done .aireply__status { color: var(--asg-cyan); font-weight: 600; }
+.aireply.is-done .aireply__status::before { animation: none; width: 12px; height: 12px; background: none;
+  /* галочка */
+  border-radius: 0; border: solid var(--asg-cyan); border-width: 0 2px 2px 0; width: 4px; height: 8px; transform: rotate(45deg) translateY(-2px); }
+@keyframes ai-blink { 50% { opacity: .25; } }
+
+.aireply__text { position: relative; margin-top: 10px; font-size: 13.5px; line-height: 1.5; color: #DCE6F5; }
+.aireply__ghost { visibility: hidden; }
+.aireply__live { position: absolute; inset: 0; }
+.aireply__live::after { content: ''; display: inline-block; width: 2px; height: 1.1em; margin-left: 2px; vertical-align: -.2em; background: var(--asg-cyan); animation: ai-blink .8s steps(1) infinite; }
+.aireply.is-done .aireply__live::after { display: none; }
+
+/* ---------- Статичный вид («уменьшить движение») ---------- */
+.v2 .hero__visual--laptop.is-static .ltoast,
+.v2 .hero__visual--laptop.is-static .aireply { opacity: 1; transform: none; animation: none; transition: none; }
+
+/* ---------- Адаптив ---------- */
+@media (min-width: 1025px) {
+  .v2 .hero__visual--laptop { margin-right: -7%; }
+}
+@media (max-width: 1024px) {
+  .v2 .hero__visual--laptop { max-width: 640px; margin-inline: auto; }
+}
+@media (max-width: 600px) {
+  .v2 .hero__visual--laptop { padding-bottom: 8px; }
+  .aireply { position: relative; right: auto; bottom: auto; width: 88%; margin: -2% 0 0 auto; }
+  .aireply__text { font-size: 13px; }
+}
