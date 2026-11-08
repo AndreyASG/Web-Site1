@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Защита: разрешены только свои файлы и шрифты Google. При подключении FORM_ENDPOINT добавьте его адрес в connect-src -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>ASG CODE V3 - создание сайтов от 15 000 ₽, контент-завод и AI-автоматизация</title>
+<meta name="description" content="ASG CODE создаёт современные сайты для предпринимателей и компаний от 15 000 ₽. Дополнительно - контент-завод с ИИ и автоматизация бизнес-процессов.">
+<meta name="theme-color" content="#000513">
+<link rel="icon" href="assets/brand/ASG_favicon_v2.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/data-rain.css">
+<link rel="stylesheet" href="css/hero-photo.css">
+</head>
+<body class="v2 v3">
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- ===== БЛОК 1. ШАПКА ===== -->
+<header class="header" id="top">
+  <div class="container header__inner">
+    <a class="header__logo" href="#top" aria-label="ASG CODE - на главную">
+      <img class="header__logo-full" src="assets/brand/ASG_CODE_logo_horizontal_final.svg" alt="ASG CODE" width="300" height="51">
+      <img class="header__logo-mark" src="assets/brand/ASG_mark.svg" alt="ASG CODE" width="88" height="27">
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <ul class="nav__list">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#works">Наши работы</a></li>
+        <li><a href="#process">Как мы работаем</a></li>
+        <li><a href="#about">О студии</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+      <a class="btn btn--primary nav__cta-mobile" href="#request">Обсудить проект</a>
+    </nav>
+
+    <a class="btn btn--primary header__cta" href="#request">Обсудить проект</a>
+
+    <button class="burger" type="button" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== БЛОК 2. ГЛАВНЫЙ ЭКРАН ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <!-- V2: анимированный «дождь данных» (js/data-rain.js). Курсор раздвигает поток -->
+    <div class="dr-root dr-root--contained" id="data-rain" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <p class="hero__hint" aria-hidden="true">Проведите курсором - поток обтекает его</p>
+    <svg class="hero__waves" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="hw1" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0" stop-color="#0A63FF" stop-opacity="0"/>
+          <stop offset=".5" stop-color="#00D4FF" stop-opacity=".55"/>
+          <stop offset="1" stop-color="#0A63FF" stop-opacity="0"/>
+        </linearGradient>
+        <filter id="hblur" x="-20%" y="-50%" width="140%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+      </defs>
+      <path d="M-60 250 Q240 90 520 70 T1000 -40" stroke="url(#hw1)" stroke-width="70" fill="none" opacity=".35" filter="url(#hblur)"/>
+      <path d="M-40 215 Q240 70 520 50 T980 -60" stroke="#7FDFFF" stroke-width="1.5" fill="none" opacity=".55"/>
+      <path d="M560 880 Q960 640 1240 660 T1520 470" stroke="url(#hw1)" stroke-width="80" fill="none" opacity=".4" filter="url(#hblur)"/>
+      <path d="M580 860 Q980 630 1250 648 T1520 455" stroke="#7FDFFF" stroke-width="1.5" fill="none" opacity=".6"/>
+    </svg>
+
+    <div class="container hero__inner">
+      <div class="hero__text">
+        <p class="hero__eyebrow">ASG CODE · Цифровые решения для бизнеса</p>
+        <h1 class="hero__title" id="hero-title">Создаём <span class="accent">современные сайты</span> для вашего бизнеса</h1>
+        <p class="hero__price">Сайты от <strong>15&nbsp;000&nbsp;₽</strong></p>
+        <p class="hero__lead">Разрабатываем сайты для предпринимателей и компаний. Используем современные технологии и искусственный интеллект, чтобы создавать удобные и эффективные цифровые решения.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#request" data-service="site">Заказать сайт</a>
+          <a class="btn btn--ghost btn--lg" href="#works">Посмотреть работы</a>
+        </div>
+        <p class="hero__directions">Сайты <span>•</span> ИИ <span>•</span> Автоматизация</p>
+      </div>
+
+      <!-- Визуальная композиция: сайт в процессе сборки -->
+      <!-- Утверждённое изображение ноутбука + живой сценарий «заявка пришла» (css/hero-photo.css, js/hero-v2-photo.js).
+           Прежний нарисованный ноутбук: css/hero-laptop.css и js/hero-v2.js, разметка - в истории git (коммит f906049). -->
+      <div class="hero__visual hero__visual--photo" aria-hidden="true">
+        <div class="photo">
+          <img class="photo__img" src="assets/hero/laptop-approved-light.webp" width="1448" height="1086" alt="" decoding="async" fetchpriority="high">
+          <span class="photo__press"></span>
+          <span class="lcursor"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.2 1.6L10 19z" fill="#fff" stroke="#000513" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+          <div class="pcard pcard--req">
+            <span class="pcard__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="pcard__body">
+              <div class="pcard__state pcard__state--idle">
+                <p class="pcard__title">Сайт «Север»</p>
+                <p class="pcard__text">Ждём новую заявку</p>
+              </div>
+              <div class="pcard__state pcard__state--new">
+                <p class="pcard__title">Новая заявка <em>сейчас</em></p>
+                <p class="pcard__text">Ирина, ремонт ванной</p>
+                <p class="pcard__meta">+7 912 *****48</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pcard pcard--ai">
+            <div class="pcard__head">
+              <span class="pcard__avatar"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="pcard__name">ИИ-помощник</span>
+              <span class="pcard__status">ждёт заявку</span>
+            </div>
+            <p class="pcard__reply">Ирина, здравствуйте! Мастер может приехать на замер завтра в 11:00. Удобно?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 3. УСЛУГИ ===== -->
+  <section class="section" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" id="services-title">Цифровые решения для вашего бизнеса</h2>
+        <p class="section__sub">От создания сайта до автоматизации рабочих процессов</p>
+      </div>
+
+      <div class="services">
+        <!-- Услуга 1 - основная -->
+        <article class="service service--main reveal">
+          <p class="service__badge">Основное направление</p>
+          <h3 class="service__title">Разработка сайтов</h3>
+          <p class="service__text">Создаём современные сайты для предпринимателей, частных специалистов и компаний. Продумываем структуру, дизайн и удобство для клиентов.</p>
+          <ul class="service__list service__list--cols">
+            <li>Одностраничные сайты</li>
+            <li>Лендинги</li>
+            <li>Сайты-визитки</li>
+            <li>Персональные сайты специалистов</li>
+            <li>Сайты услуг</li>
+            <li>Небольшие многостраничные сайты</li>
+          </ul>
+          <div class="service__footer">
+            <div>
+              <p class="service__price">От 15&nbsp;000&nbsp;₽</p>
+              <p class="service__note">Стоимость простого одностраничного сайта без сложных функций</p>
+            </div>
+            <a class="btn btn--primary" href="#request" data-service="site">Заказать сайт</a>
+          </div>
+        </article>
+
+        <!-- Услуга 2 -->
+        <article class="service reveal">
+          <h3 class="service__title">Контент-завод с ИИ</h3>
+          <p class="service__text">Помогаем организовать системное создание контента с помощью искусственного интеллекта. От идеи и сценария до подготовки материалов для публикации.</p>
+          <ul class="service__list">
+            <li>Генерация идей</li>
+            <li>Подготовка сценариев</li>
+            <li>Тексты для публикаций</li>
+            <li>Создание визуальных материалов</li>
+            <li>Автоматизация контент-процессов</li>
+          </ul>
+          <div class="service__footer">
+            <p class="service__price service__price--custom">Рассчитывается индивидуально</p>
+            <a class="btn btn--outline" href="#request" data-service="content">Обсудить контент-завод</a>
+          </div>
+        </article>
+
+        <!-- Услуга 3 -->
+        <article class="service reveal">
+          <h3 class="service__title">AI-автоматизация бизнес-процессов</h3>
+          <p class="service__text">Разрабатываем решения, которые помогают сократить ручную работу и упростить повторяющиеся задачи сотрудников.</p>
+          <ul class="service__list">
+            <li>AI-агенты и помощники</li>
+            <li>Автоматизация обработки информации</li>
+            <li>Работа с CRM и бизнес-системами</li>
+            <li>Подготовка отчётов</li>
+            <li>Контроль и сопровождение рабочих процессов</li>
+          </ul>
+          <div class="service__footer">
+            <p class="service__price service__price--custom">Рассчитывается индивидуально</p>
+            <a class="btn btn--outline" href="#request" data-service="automation">Обсудить автоматизацию</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 4. ЗАДАЧИ ===== -->
+  <section class="section section--tint" aria-labelledby="tasks-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" id="tasks-title">Технологии должны решать задачи, а не создавать новые</h2>
+      </div>
+      <div class="tasks">
+        <article class="task reveal">
+          <h3 class="task__problem">Нет собственного сайта</h3>
+          <p class="task__solution">Помогаем представить услуги компании в интернете.</p>
+        </article>
+        <article class="task reveal">
+          <h3 class="task__problem">Неудобно получать заявки</h3>
+          <p class="task__solution">Создаём понятный путь от знакомства с услугой до обращения.</p>
+        </article>
+        <article class="task reveal">
+          <h3 class="task__problem">Не хватает времени на контент</h3>
+          <p class="task__solution">Выстраиваем процесс подготовки материалов.</p>
+        </article>
+        <article class="task reveal">
+          <h3 class="task__problem">Много ручной работы</h3>
+          <p class="task__solution">Ищем повторяющиеся операции, которые можно автоматизировать.</p>
+        </article>
+        <article class="task reveal">
+          <h3 class="task__problem">Нужен ИИ для бизнеса</h3>
+          <p class="task__solution">Подбираем решения под конкретную задачу.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 5. НАШИ РАБОТЫ =====
+       Сейчас здесь демонстрационные концепции. Чтобы поставить реальный проект:
+       замените файл в assets/portfolio/ (тот же размер 1200×800) и поправьте подпись. -->
+  <section class="section" id="works" aria-labelledby="works-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" id="works-title">Примеры цифровых решений</h2>
+        <p class="section__sub">Демонстрационные концепции: так могут выглядеть решения для вашего бизнеса. Это примеры дизайна, а не клиентские кейсы.</p>
+      </div>
+      <div class="works">
+        <article class="work reveal">
+          <div class="work__img">
+            <img src="assets/portfolio/specialist.svg" alt="Пример дизайна: персональный сайт частного специалиста" width="1200" height="800" loading="lazy">
+            <span class="work__tag">Пример дизайна</span>
+          </div>
+          <h3 class="work__title">Сайт для частного специалиста</h3>
+          <p class="work__text">Персональная страница: кто вы, чем помогаете, стоимость и запись на консультацию.</p>
+        </article>
+        <article class="work reveal">
+          <div class="work__img">
+            <img src="assets/portfolio/small-business.svg" alt="Пример дизайна: сайт небольшой компании" width="1200" height="800" loading="lazy">
+            <span class="work__tag">Пример дизайна</span>
+          </div>
+          <h3 class="work__title">Сайт для малого бизнеса</h3>
+          <p class="work__text">Услуги, цены, преимущества и удобная форма заявки на одной странице.</p>
+        </article>
+        <article class="work reveal">
+          <div class="work__img">
+            <img src="assets/portfolio/automation.svg" alt="Пример возможного решения: интерфейс управления бизнес-процессами" width="1200" height="800" loading="lazy">
+            <span class="work__tag">Пример решения</span>
+          </div>
+          <h3 class="work__title">AI-автоматизация</h3>
+          <p class="work__text">Панель, где заявки и задачи собираются в одном месте, а ИИ помогает их разбирать.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 6. КАК МЫ РАБОТАЕМ ===== -->
+  <section class="section section--tint" id="process" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <h2 class="section__title" id="process-title">От идеи до готового решения</h2>
+      </div>
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step__num">01</span>
+          <h3 class="step__title">Обсуждаем задачу</h3>
+          <p class="step__text">Выясняем цели, пожелания и особенности бизнеса.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">02</span>
+          <h3 class="step__title">Предлагаем решение</h3>
+          <p class="step__text">Определяем структуру, функциональность и стоимость.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">03</span>
+          <h3 class="step__title">Разрабатываем</h3>
+          <p class="step__text">Создаём сайт или цифровой инструмент, проверяем функциональность.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step__num">04</span>
+          <h3 class="step__title">Запускаем и сопровождаем</h3>
+          <p class="step__text">Публикуем решение, показываем, как им пользоваться, и помогаем с доработками.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 7. О СТУДИИ ===== -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container about">
+      <div class="about__mark reveal" aria-hidden="true">
+        <img src="assets/brand/ASG_mark.svg" alt="" width="300" height="92">
+      </div>
+      <div class="about__text reveal">
+        <h2 class="section__title" id="about-title">О студии</h2>
+        <p>ASG CODE - технологическая студия Андрея Сергеевича Гладких. ASG в названии - инициалы основателя.</p>
+        <p>Главное направление студии - создание сайтов для малого бизнеса, предпринимателей и частных специалистов. Дополнительно помогаем внедрять искусственный интеллект: выстраиваем контент-заводы и автоматизируем рутинные процессы.</p>
+        <ul class="about__principles">
+          <li><b>Понятно.</b> Объясняем решения простым языком, без лишних терминов.</li>
+          <li><b>По делу.</b> Предлагаем то, что нужно вашей задаче, а не всё подряд.</li>
+          <li><b>Честно.</b> Стоимость и состав работ согласуем до начала разработки.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== БЛОК 8. ЗАЯВКА И КОНТАКТЫ ===== -->
+  <section class="section request-section" id="request" aria-labelledby="request-title">
+    <div class="container request">
+      <div class="request__info reveal" id="contacts">
+        <h2 class="section__title" id="request-title">Обсудим ваш проект</h2>
+        <p class="request__lead">Опишите задачу - ответим, предложим решение и назовём стоимость.</p>
+
+        <!-- ЗАМЕНИТЬ перед публикацией: контакты ниже - заглушки -->
+        <ul class="contacts">
+          <li>
+            <span class="contacts__label">Телефон</span>
+            <a class="contacts__value" href="tel:+70000000000">+7 (000) 000-00-00</a>
+          </li>
+          <li>
+            <span class="contacts__label">Telegram</span>
+            <a class="contacts__value" href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer">@your_telegram</a>
+          </li>
+          <li>
+            <span class="contacts__label">Почта</span>
+            <a class="contacts__value" href="mailto:mail@example.ru">mail@example.ru</a>
+          </li>
+        </ul>
+        <p class="request__geo">Работаем с клиентами по всей России</p>
+      </div>
+
+      <form class="form reveal" id="request-form" novalidate>
+        <div class="form__row">
+          <label class="form__label" for="f-name">Ваше имя</label>
+          <input class="form__input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Андрей" maxlength="80" required>
+          <p class="form__error" id="f-name-err"></p>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="f-contact">Телефон или Telegram</label>
+          <input class="form__input" id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 900 123-45-67 или @username" maxlength="40" required>
+          <p class="form__error" id="f-contact-err"></p>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="f-service">Услуга</label>
+          <select class="form__input form__select" id="f-service" name="service">
+            <option value="site">Разработка сайта</option>
+            <option value="content">Контент-завод с ИИ</option>
+            <option value="automation">AI-автоматизация бизнес-процессов</option>
+            <option value="other">Другое / пока не знаю</option>
+          </select>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="f-message">Коротко о задаче <span class="form__optional">необязательно</span></label>
+          <textarea class="form__input form__textarea" id="f-message" name="message" rows="4" maxlength="2000" placeholder="Например: нужен сайт для салона красоты с записью и ценами"></textarea>
+        </div>
+        <div class="form__row form__row--check">
+          <input class="form__check" id="f-agree" name="agree" type="checkbox" required>
+          <label for="f-agree">Согласен на обработку персональных данных</label>
+          <p class="form__error" id="f-agree-err"></p>
+        </div>
+        <button class="btn btn--primary btn--lg form__submit" type="submit">Отправить заявку</button>
+        <div class="form__status" id="form-status" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== ПОДВАЛ ===== -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <img src="assets/brand/ASG_mark.svg" alt="ASG CODE" width="96" height="30">
+      <p>Технологии, которые работают на бизнес</p>
+    </div>
+    <nav class="footer__nav" aria-label="Меню в подвале">
+      <a href="#services">Услуги</a>
+      <a href="#works">Наши работы</a>
+      <a href="#process">Как мы работаем</a>
+      <a href="#about">О студии</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="footer__legal">
+      <p>© <span id="year">2026</span> ASG CODE. Гладких Андрей Сергеевич</p>
+      <p>Сайты • ИИ • Автоматизация</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/data-rain.js"></script>
+<script src="js/hero-v2-photo.js"></script>
+</body>
+</html>
