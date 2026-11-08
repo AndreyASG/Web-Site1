@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="ASG CODE - иконка">
+<!-- Иконка ASG CODE: favicon, аватар соцсетей, иконка приложения. Знак ASG на тёмном фоне бренда -->
+<defs>
+  <linearGradient id="fav-bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#000513"/>
+    <stop offset="1" stop-color="#001433"/>
+  </linearGradient>
+
+  <linearGradient id="g-fill" gradientUnits="userSpaceOnUse" x1="610" y1="20" x2="450" y2="192">
+    <stop offset="0" stop-color="#00F7FF"/>
+    <stop offset="0.45" stop-color="#00D4FF"/>
+    <stop offset="1" stop-color="#0A63FF"/>
+  </linearGradient>
+  <linearGradient id="g-shade" gradientUnits="userSpaceOnUse" x1="428" y1="0" x2="492" y2="0">
+    <stop offset="0" stop-color="#041A66" stop-opacity="0.95"/>
+    <stop offset="0.55" stop-color="#0636B0" stop-opacity="0.5"/>
+    <stop offset="1" stop-color="#0636B0" stop-opacity="0"/>
+  </linearGradient>
+
+</defs>
+<rect width="512" height="512" rx="104" fill="url(#fav-bg)"/>
+<g transform="translate(29.6 180.8) scale(0.72)">
+  <path d="M468 18 L616 18 L600 53 L500 53 C482 53 472 64 472 82 L472 152 L540 152 L543 120 L500 120 L512 85 L598 85 L590 162 C588 182 575 192 553 192 L468 192 C444 192 428 177 428 154 L428 58 C428 33 444 18 468 18 Z" fill="url(#g-fill)"/>
+  <path d="M468 18 L616 18 L600 53 L500 53 C482 53 472 64 472 82 L472 152 L540 152 L543 120 L500 120 L512 85 L598 85 L590 162 C588 182 575 192 553 192 L468 192 C444 192 428 177 428 154 L428 58 C428 33 444 18 468 18 Z" fill="url(#g-shade)"/>
+  <g fill="#FFFFFF" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">
+    <path d="M13 192 L126 26 Q132 17 142 17 L160 17 Q169 17 173 25 L260 152 L391 152 L391 120 L276 120 C250 120 236 106 236 88 L236 52 C236 30 250 18 272 18 L423 18 L400 53 L292 53 Q279 53 279 65 L279 74 Q279 85 291 85 L395 85 C420 85 436 101 436 122 L436 156 C436 178 420 192 396 192 L234 192 L152 72 L148 72 L64 192 Z"/>
+    <path d="M90 192 L116 153 L186 153 L210 192 Z"/>
+  </g>
+</g>
+</svg>

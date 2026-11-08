@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-label="Пример решения: интерфейс управления бизнес-процессами с ИИ-помощником">
+  <!-- Демонстрационный макет. Замените этот файл скриншотом реального проекта 1200×800 -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061433"/><stop offset="1" stop-color="#000513"/></linearGradient>
+    <linearGradient id="g" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00F7FF"/><stop offset=".45" stop-color="#00D4FF"/><stop offset="1" stop-color="#0A63FF"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00D4FF" stop-opacity=".35"/><stop offset="1" stop-color="#00D4FF" stop-opacity="0"/></linearGradient>
+    <clipPath id="win"><rect x="110" y="90" width="980" height="660" rx="18"/></clipPath>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <circle cx="1020" cy="700" r="300" fill="#0A63FF" opacity=".14"/>
+  <g clip-path="url(#win)" font-family="Arial, sans-serif">
+    <rect x="110" y="90" width="980" height="660" fill="#050E24"/>
+    <!-- боковое меню -->
+    <rect x="110" y="90" width="200" height="660" fill="#030A1C"/>
+    <rect x="140" y="124" width="36" height="36" rx="9" fill="url(#g)"/>
+    <text x="190" y="149" font-size="16" font-weight="bold" fill="#FFFFFF">Панель</text>
+    <rect x="130" y="196" width="160" height="38" rx="9" fill="#0B1E44"/>
+    <text x="152" y="221" font-size="14" fill="#FFFFFF">Заявки</text>
+    <text x="152" y="267" font-size="14" fill="#8597B8">Задачи</text>
+    <text x="152" y="307" font-size="14" fill="#8597B8">Клиенты</text>
+    <text x="152" y="347" font-size="14" fill="#8597B8">Отчёты</text>
+    <text x="152" y="387" font-size="14" fill="#8597B8">Настройки</text>
+    <!-- заголовок -->
+    <text x="340" y="148" font-size="24" font-weight="bold" fill="#FFFFFF">Заявки за неделю</text>
+    <rect x="890" y="122" width="170" height="38" rx="9" fill="#00E5FA"/>
+    <text x="975" y="147" font-size="14" font-weight="bold" fill="#000513" text-anchor="middle">Новый отчёт</text>
+    <!-- график -->
+    <rect x="340" y="184" width="460" height="250" rx="14" fill="#08173A" stroke="#13213D"/>
+    <text x="364" y="218" font-size="14" fill="#8597B8">Обращения по дням</text>
+    <path d="M364 390 L428 350 L492 362 L556 316 L620 330 L684 284 L748 300 L776 270 L776 410 L364 410 Z" fill="url(#area)"/>
+    <path d="M364 390 L428 350 L492 362 L556 316 L620 330 L684 284 L748 300 L776 270" fill="none" stroke="#00E5FA" stroke-width="3" stroke-linejoin="round"/>
+    <g fill="#13213D"><rect x="364" y="410" width="412" height="1"/></g>
+    <!-- ИИ-помощник -->
+    <rect x="820" y="184" width="240" height="250" rx="14" fill="#08173A" stroke="#1E3358"/>
+    <circle cx="848" cy="214" r="10" fill="url(#g)"/>
+    <text x="866" y="219" font-size="14" font-weight="bold" fill="#FFFFFF">ИИ-помощник</text>
+    <rect x="840" y="240" width="200" height="56" rx="10" fill="#0B1E44"/>
+    <text x="854" y="263" font-size="12" fill="#C8D4EA">3 заявки ждут ответа.</text>
+    <text x="854" y="282" font-size="12" fill="#C8D4EA">Подготовить черновики?</text>
+    <rect x="840" y="308" width="96" height="30" rx="8" fill="#00E5FA"/>
+    <text x="888" y="328" font-size="12" font-weight="bold" fill="#000513" text-anchor="middle">Да</text>
+    <rect x="944" y="308" width="96" height="30" rx="8" fill="none" stroke="#1E3358"/>
+    <text x="992" y="328" font-size="12" fill="#C8D4EA" text-anchor="middle">Позже</text>
+    <rect x="840" y="352" width="200" height="60" rx="10" fill="#0B1E44" opacity=".6"/>
+    <text x="854" y="376" font-size="12" fill="#8597B8">Отчёт за неделю</text>
+    <text x="854" y="396" font-size="12" fill="#8597B8">собран автоматически</text>
+    <!-- таблица -->
+    <rect x="340" y="458" width="720" height="262" rx="14" fill="#08173A" stroke="#13213D"/>
+    <g font-size="13" fill="#8597B8">
+      <text x="364" y="494">Клиент</text><text x="580" y="494">Источник</text><text x="760" y="494">Статус</text><text x="920" y="494">Ответ</text>
+    </g>
+    <g font-size="14" fill="#E3EBF5">
+      <rect x="352" y="510" width="696" height="1" fill="#13213D"/>
+      <text x="364" y="546">Заявка с сайта</text><text x="580" y="546">Форма</text>
+      <rect x="760" y="530" width="92" height="26" rx="13" fill="#003A4A"/><text x="806" y="548" font-size="12" fill="#00E5FA" text-anchor="middle">Новая</text>
+      <text x="920" y="546" fill="#8597B8">Черновик ИИ</text>
+      <rect x="352" y="570" width="696" height="1" fill="#13213D"/>
+      <text x="364" y="606">Сообщение в Telegram</text><text x="580" y="606">Telegram</text>
+      <rect x="760" y="590" width="92" height="26" rx="13" fill="#0B2A66"/><text x="806" y="608" font-size="12" fill="#7FB0FF" text-anchor="middle">В работе</text>
+      <text x="920" y="606" fill="#8597B8">Менеджер</text>
+      <rect x="352" y="630" width="696" height="1" fill="#13213D"/>
+      <text x="364" y="666">Звонок</text><text x="580" y="666">Телефон</text>
+      <rect x="760" y="650" width="92" height="26" rx="13" fill="#10233F"/><text x="806" y="668" font-size="12" fill="#9FB0CC" text-anchor="middle">Закрыта</text>
+      <text x="920" y="666" fill="#8597B8">Готово</text>
+    </g>
+  </g>
+  <rect x="110" y="90" width="980" height="660" rx="18" fill="none" stroke="#1E3358" stroke-width="2"/>
+</svg>

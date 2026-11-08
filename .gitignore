@@ -1,0 +1,8 @@
+.env
+.env.*
+!.env.example
+.playwright-mcp/
+.claude/
+node_modules/
+Thumbs.db
+.DS_Store
