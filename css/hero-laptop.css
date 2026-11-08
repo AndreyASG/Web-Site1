@@ -4,114 +4,52 @@
 
 .v2 .hero__visual--laptop { padding: 8px 0 72px; overflow: visible; }
 
-/* ---------- Ноутбук ----------
-   Крышка с тонкой рамкой стоит прямо, нижняя часть (клавиатура и тачпад) уходит к зрителю
-   в настоящей 3D-перспективе: камера чуть выше ноутбука, как на предметной съёмке. */
-.laptop { position: relative; container-type: inline-size; padding-bottom: 2cqw; }
-
-/* Отражение и свет на «столе» */
-.laptop::after {
-  content: ''; position: absolute; left: 4%; right: 4%; bottom: -3cqw; height: 12cqw;
-  background:
-    radial-gradient(50% 45% at 50% 40%, rgba(0, 212, 255, .32), rgba(10, 99, 255, .12) 55%, transparent 75%);
-  filter: blur(16px); z-index: -1; pointer-events: none;
+/* ---------- Ноутбук ---------- */
+.laptop { position: relative; container-type: inline-size; }
+.laptop::after { /* свет под ноутбуком */
+  content: ''; position: absolute; left: 12%; right: 12%; bottom: -5cqw; height: 9cqw;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(0, 212, 255, .35), rgba(10, 99, 255, .12) 55%, transparent 75%);
+  filter: blur(14px); z-index: -1; pointer-events: none;
 }
 
 .laptop__lid {
-  position: relative; width: 78%; margin: 0 auto;
-  padding: 1.1cqw 1cqw 1.6cqw;
-  border-radius: 1.9cqw 1.9cqw .5cqw .5cqw;
-  background: #04060B;
+  position: relative; width: 86%; margin: 0 auto;
+  padding: 1.5cqw 1.5cqw 1.9cqw;
+  border-radius: 2.6cqw 2.6cqw .8cqw .8cqw;
+  background: linear-gradient(180deg, #1C2538 0%, #0D1322 60%, #0A0F1B 100%);
   box-shadow:
-    0 0 0 .22cqw #2E374A,
-    0 0 0 .3cqw rgba(255, 255, 255, .08),
-    inset 0 0 0 1px rgba(255, 255, 255, .05),
-    0 6cqw 10cqw -6cqw rgba(10, 99, 255, .6);
+    inset 0 0 0 1px rgba(255, 255, 255, .07),
+    inset 0 1px 0 rgba(255, 255, 255, .22),
+    0 4cqw 9cqw -4cqw rgba(10, 99, 255, .55),
+    0 2cqw 4cqw -2cqw rgba(0, 0, 0, .7);
 }
 .laptop__cam {
-  position: absolute; top: .38cqw; left: 50%; width: .42cqw; height: .42cqw; margin-left: -.21cqw;
-  border-radius: 50%; background: #121A2A; box-shadow: inset 0 0 0 1px rgba(0, 229, 250, .2);
+  position: absolute; top: .55cqw; left: 50%; width: .5cqw; height: .5cqw; margin-left: -.25cqw;
+  border-radius: 50%; background: #1E2A40; box-shadow: inset 0 0 0 1px rgba(0, 229, 250, .18);
 }
 .laptop__screen {
   position: relative; aspect-ratio: 16 / 10; overflow: hidden;
-  border-radius: .5cqw;
+  border-radius: 1.2cqw;
   container-type: inline-size;
   background:
-    radial-gradient(70% 60% at 85% 0%, rgba(10, 99, 255, .3), transparent 60%),
+    radial-gradient(70% 60% at 85% 0%, rgba(10, 99, 255, .28), transparent 60%),
     linear-gradient(180deg, #04102A 0%, #020818 100%);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .6);
 }
 .laptop__glare {
   position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(120deg, rgba(255, 255, 255, .09) 0%, rgba(255, 255, 255, .025) 36%, transparent 36.2%);
+  background: linear-gradient(118deg, rgba(255, 255, 255, .075) 0%, rgba(255, 255, 255, .02) 34%, transparent 34.2%);
 }
-
-/* Петля */
-.laptop__hinge {
-  position: relative; z-index: 2; width: 74%; height: .7cqw; margin: 0 auto;
-  border-radius: 0 0 .4cqw .4cqw;
-  background: linear-gradient(180deg, #0A0E17 0%, #1B2232 100%);
+.laptop__base {
+  position: relative; height: 2.1cqw;
+  border-radius: .3cqw .3cqw 2.2cqw 2.2cqw / .3cqw .3cqw 1.6cqw 1.6cqw;
+  background: linear-gradient(180deg, #3A4560 0%, #1A2233 28%, #0C121F 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), 0 1.6cqw 3cqw -1.2cqw rgba(0, 0, 0, .9);
 }
-
-/* Нижняя часть в перспективе */
-.laptop__deck-wrap {
-  position: relative; height: 22cqw; margin-top: -.2cqw;
-  perspective: 300cqw; perspective-origin: 50% -20cqw;
-}
-.laptop__deck {
-  position: relative; width: 78%; height: 46cqw; margin: 0 auto;
-  transform-origin: 50% 0; transform: rotateX(66deg);
-  transform-style: preserve-3d;
-  border-radius: .4cqw .4cqw 1.6cqw 1.6cqw;
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, .06) 0%, transparent 18%),
-    linear-gradient(180deg, #2C3547 0%, #222A3B 55%, #1A2030 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .07);
-}
-/* Клавиатура: тёмные клавиши над голубой подсветкой */
-.laptop__kbd {
-  position: absolute; top: 6%; left: 7%; right: 7%; height: 47%;
-  border-radius: .8cqw;
-  background: radial-gradient(80% 90% at 50% 60%, rgba(0, 229, 250, .32), rgba(10, 99, 255, .16) 60%, rgba(4, 8, 16, .9) 100%);
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .6);
-}
-.laptop__kbd::before { /* клавиши: пересечение рядов и колонок */
-  content: ''; position: absolute; inset: .7cqw;
-  background: linear-gradient(180deg, #1A2131, #0E131D);
-  -webkit-mask:
-    repeating-linear-gradient(90deg, #000 0 6.6%, transparent 6.6% 7.1428%),
-    repeating-linear-gradient(180deg, #000 0 14.6%, transparent 14.6% 16.6667%);
-  -webkit-mask-composite: source-in;
-  mask:
-    repeating-linear-gradient(90deg, #000 0 6.6%, transparent 6.6% 7.1428%),
-    repeating-linear-gradient(180deg, #000 0 14.6%, transparent 14.6% 16.6667%);
-  mask-composite: intersect;
-}
-.laptop__kbd::after { /* пробел */
-  content: ''; position: absolute; left: 31%; width: 38%; bottom: .7cqw; height: calc((100% - 1.4cqw) * .146);
-  background: linear-gradient(180deg, #1A2131, #0E131D);
-}
-/* Тачпад - реагирует на «клик» в сценарии */
-.laptop__pad {
-  position: absolute; left: 50%; bottom: 7%; width: 40%; height: 34%;
-  transform: translateX(-50%); border-radius: 1.2cqw;
-  background: linear-gradient(180deg, #2C3549 0%, #1F2738 100%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .09);
-  transition: box-shadow .35s ease, background .35s ease;
-}
-.laptop__pad.is-click {
-  background: linear-gradient(180deg, #2F3F5A 0%, #213049 100%);
-  box-shadow: inset 0 0 0 1px rgba(0, 229, 250, .7), 0 0 3cqw rgba(0, 229, 250, .5);
-}
-/* Передний торец: стоит вертикально к зрителю */
-.laptop__front {
-  position: absolute; left: 0; right: 0; top: 100%; height: 3.4cqw;
-  transform-origin: 50% 0; transform: rotateX(-66deg);
-  border-radius: 0 0 1.6cqw 1.6cqw;
-  background: linear-gradient(180deg, #6A7895 0%, #34405A 22%, #1A2131 70%, #0E131D 100%);
-}
-.laptop__front::after { /* выемка под палец */
-  content: ''; position: absolute; top: 0; left: 50%; width: 16%; height: 40%; transform: translateX(-50%);
-  border-radius: 0 0 1cqw 1cqw; background: linear-gradient(180deg, #121826, #232C3E);
+.laptop__notch {
+  position: absolute; top: 0; left: 50%; width: 14%; height: .75cqw; transform: translateX(-50%);
+  border-radius: 0 0 .9cqw .9cqw; background: #0B111D;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .06);
 }
 
 /* ---------- Сайт клиента на экране ---------- */

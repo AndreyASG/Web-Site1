@@ -13,7 +13,6 @@
   var screen = visual.querySelector('.laptop__screen');
   var btn = visual.querySelector('.lsite__btn');
   var cursor = visual.querySelector('.lcursor');
-  var pad = visual.querySelector('.laptop__pad');
   var toast = visual.querySelector('.ltoast');
   var reply = visual.querySelector('.aireply');
   var status = reply && reply.querySelector('.aireply__status');
@@ -86,8 +85,8 @@
     reset();
     later(function () { cursor.classList.add('is-on'); }, 300);
     later(cursorToButton, 450);
-    later(function () { cursor.classList.add('is-click'); btn.classList.add('is-pressed'); if (pad) pad.classList.add('is-click'); }, 1500);
-    later(function () { cursor.classList.remove('is-click'); btn.classList.remove('is-pressed'); if (pad) pad.classList.remove('is-click'); }, 1720);
+    later(function () { cursor.classList.add('is-click'); btn.classList.add('is-pressed'); }, 1500);
+    later(function () { cursor.classList.remove('is-click'); btn.classList.remove('is-pressed'); }, 1720);
     later(function () { toast.classList.add('is-in'); }, 1900);
     later(function () { cursor.classList.remove('is-on'); }, 2900);
     later(function () { reply.classList.add('is-in'); }, 3100);
