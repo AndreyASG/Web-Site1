@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Защита: разрешены только свои файлы и шрифты Google. При подключении FORM_ENDPOINT добавьте его адрес в connect-src -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>ASG CODE - создание сайтов от 15 000 ₽, контент-завод и AI-автоматизация</title>
 <meta name="description" content="ASG CODE создаёт современные сайты для предпринимателей и компаний от 15 000 ₽. Дополнительно - контент-завод с ИИ и автоматизация бизнес-процессов.">
 <meta name="theme-color" content="#000513">
@@ -11,8 +14,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/data-rain.css">
+<link rel="stylesheet" href="css/hero-photo.css">
 </head>
-<body>
+<body class="v2 v3">
 
 <a class="skip-link" href="#main">Перейти к содержанию</a>
 
@@ -47,6 +52,10 @@
 
   <!-- ===== БЛОК 2. ГЛАВНЫЙ ЭКРАН ===== -->
   <section class="hero" aria-labelledby="hero-title">
+    <!-- V2: анимированный «дождь данных» (js/data-rain.js). Курсор раздвигает поток -->
+    <div class="dr-root dr-root--contained" id="data-rain" aria-hidden="true"></div>
+    <div class="hero__shade" aria-hidden="true"></div>
+    <p class="hero__hint" aria-hidden="true">Проведите курсором - поток обтекает его</p>
     <svg class="hero__waves" viewBox="0 0 1440 820" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
       <defs>
         <linearGradient id="hw1" x1="0" y1="1" x2="1" y2="0">
@@ -76,36 +85,37 @@
       </div>
 
       <!-- Визуальная композиция: сайт в процессе сборки -->
-      <div class="hero__visual" aria-hidden="true">
-        <div class="browser">
-          <div class="browser__bar">
-            <i></i><i></i><i></i>
-            <span class="browser__url">ваш-сайт.рф</span>
-          </div>
-          <div class="browser__body">
-            <div class="mock-nav"><b></b><span></span><span></span><span></span><em></em></div>
-            <div class="mock-hero">
-              <div class="mock-hero__text">
-                <span class="mock-line mock-line--xl"></span>
-                <span class="mock-line mock-line--lg"></span>
-                <span class="mock-line mock-line--sm"></span>
-                <span class="mock-btn"></span>
+      <!-- Утверждённое изображение ноутбука + живой сценарий «заявка пришла» (css/hero-photo.css, js/hero-v2-photo.js).
+           Прежний нарисованный ноутбук: css/hero-laptop.css и js/hero-v2.js, разметка - в истории git (коммит f906049). -->
+      <div class="hero__visual hero__visual--photo" aria-hidden="true">
+        <div class="photo">
+          <img class="photo__img" src="assets/hero/laptop-approved-light.webp" width="1448" height="1086" alt="" decoding="async" fetchpriority="high">
+          <span class="photo__press"></span>
+          <span class="lcursor"><svg viewBox="0 0 24 24"><path d="M5 3l14 8-6.2 1.6L10 19z" fill="#fff" stroke="#000513" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+
+          <div class="pcard pcard--req">
+            <span class="pcard__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></span>
+            <div class="pcard__body">
+              <div class="pcard__state pcard__state--idle">
+                <p class="pcard__title">Сайт «Север»</p>
+                <p class="pcard__text">Ждём новую заявку</p>
               </div>
-              <div class="mock-hero__img"></div>
+              <div class="pcard__state pcard__state--new">
+                <p class="pcard__title">Новая заявка <em>сейчас</em></p>
+                <p class="pcard__text">Ирина, ремонт ванной</p>
+                <p class="pcard__meta">+7 912 *****48</p>
+              </div>
             </div>
-            <div class="mock-cards"><span></span><span></span><span></span></div>
           </div>
-        </div>
-        <div class="float-card float-card--request">
-          <span class="float-card__dot"></span>
-          <div>
-            <p class="float-card__title">Новая заявка с сайта</p>
-            <p class="float-card__text">Имя, телефон, задача</p>
+
+          <div class="pcard pcard--ai">
+            <div class="pcard__head">
+              <span class="pcard__avatar"><svg viewBox="0 0 24 24"><path d="M4 12h4l2-6 4 12 2-6h4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="pcard__name">ИИ-помощник</span>
+              <span class="pcard__status">ждёт заявку</span>
+            </div>
+            <p class="pcard__reply">Ирина, здравствуйте! Мастер может приехать на замер завтра в 11:00. Удобно?</p>
           </div>
-        </div>
-        <div class="float-card float-card--ai">
-          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 12h4l2-6 4 12 2-6h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <p>ИИ-помощник готовит ответ</p>
         </div>
       </div>
     </div>
@@ -313,7 +323,7 @@
           </li>
           <li>
             <span class="contacts__label">Telegram</span>
-            <a class="contacts__value" href="https://t.me/your_telegram" target="_blank" rel="noopener">@your_telegram</a>
+            <a class="contacts__value" href="https://t.me/your_telegram" target="_blank" rel="noopener noreferrer">@your_telegram</a>
           </li>
           <li>
             <span class="contacts__label">Почта</span>
@@ -326,12 +336,12 @@
       <form class="form reveal" id="request-form" novalidate>
         <div class="form__row">
           <label class="form__label" for="f-name">Ваше имя</label>
-          <input class="form__input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Андрей" required>
+          <input class="form__input" id="f-name" name="name" type="text" autocomplete="name" placeholder="Андрей" maxlength="80" required>
           <p class="form__error" id="f-name-err"></p>
         </div>
         <div class="form__row">
           <label class="form__label" for="f-contact">Телефон или Telegram</label>
-          <input class="form__input" id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 900 123-45-67 или @username" required>
+          <input class="form__input" id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7 900 123-45-67 или @username" maxlength="40" required>
           <p class="form__error" id="f-contact-err"></p>
         </div>
         <div class="form__row">
@@ -345,7 +355,7 @@
         </div>
         <div class="form__row">
           <label class="form__label" for="f-message">Коротко о задаче <span class="form__optional">необязательно</span></label>
-          <textarea class="form__input form__textarea" id="f-message" name="message" rows="4" placeholder="Например: нужен сайт для салона красоты с записью и ценами"></textarea>
+          <textarea class="form__input form__textarea" id="f-message" name="message" rows="4" maxlength="2000" placeholder="Например: нужен сайт для салона красоты с записью и ценами"></textarea>
         </div>
         <div class="form__row form__row--check">
           <input class="form__check" id="f-agree" name="agree" type="checkbox" required>
@@ -382,5 +392,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/data-rain.js"></script>
+<script src="js/hero-v2-photo.js"></script>
 </body>
 </html>
